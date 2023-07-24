@@ -4,14 +4,15 @@ import { Input } from '../../components';
 import { styles } from './styles.js';
 import { COLORS } from '../../themes/index.js';
 import { AntDesign } from '@expo/vector-icons';
-import PRODUCTS from '../../constant/data/products.json';
-import CATEGORIES from '../../constant/data/categories.json';
+import { useSelector } from 'react-redux';
 
 function Products({ navigation, route }) {
 	const { categoryId, color } = route.params;
 	const [search, setSearch] = useState('');
 	const [backgroundColor, setBackgroundColor] = useState(COLORS.white);
 	const [filteredProducts, setFilteredProducts] = useState([]);
+
+	const products = useSelector((state) => state.products.data);
 
 	const filterBySearch = (query) => {
 		let updatedProductList = [...filteredProductsByCategory];
@@ -38,7 +39,7 @@ function Products({ navigation, route }) {
 		navigation.navigate('ProductDetail', { productId, color, title });
 	};
 
-	const filteredProductsByCategory = PRODUCTS.filter(
+	const filteredProductsByCategory = products.filter(
 		(product) => product.categoryId === categoryId
 	);
 

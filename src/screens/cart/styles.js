@@ -4,10 +4,8 @@ import { COLORS, FONTS } from '../../themes';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: 'center',
 	},
-	productDetailImage: {
-		height: 300,
-		width: 300,
+	listContainer: {
+		flex: 1,
 	},
 });

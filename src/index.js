@@ -2,7 +2,9 @@ import { ActivityIndicator, SafeAreaView, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { COLORS, FONTS } from './themes';
 import { styles } from './styles.js';
-import RootNavigator from "./navigations/index.jsx"
+import { Provider } from 'react-redux';
+import RootNavigator from './navigations/index.jsx';
+import { store } from './store';
 
 export default function App() {
 	const [loaded] = useFonts({
@@ -16,14 +18,16 @@ export default function App() {
 	if (!loaded) {
 		return (
 			<View style={styles.loaderContainer}>
-				<ActivityIndicator color={COLORS.primary} size='large' />
+				<ActivityIndicator color={COLORS.primary} size="large" />
 			</View>
 		);
 	}
 
 	return (
-		<SafeAreaView style={styles.container}>
-			<RootNavigator />
-		</SafeAreaView>
+		<Provider store={store}>
+			<SafeAreaView style={styles.container}>
+				<RootNavigator />
+			</SafeAreaView>
+		</Provider>
 	);
 }
