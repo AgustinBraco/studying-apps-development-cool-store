@@ -18,7 +18,7 @@ function ShopNavigator() {
           fontSize: 26,
         },
         headerTintColor: COLORS.white,
-        animation: 'slide_from_bottom'
+        animation: "fade_from_bottom"
 			}}
 		>
 			<Stack.Screen name="Categories" component={Categories} />

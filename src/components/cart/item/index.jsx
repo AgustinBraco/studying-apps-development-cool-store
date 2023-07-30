@@ -3,16 +3,17 @@ import { Ionicons } from '@expo/vector-icons';
 import { styles } from './styles.js';
 import { COLORS } from '../../../themes/index.js';
 
+
 const CartItem = ({
 	id,
-	categoryId,
 	name,
 	price,
 	image,
 	currency,
 	quantity,
-	stock,
-  ...props
+  onIncreaseCartItem,
+  onDecreaseCartItem,
+  onRemoveCartItem,
 }) => {
 	return (
 		<View style={styles.container}>
@@ -25,15 +26,15 @@ const CartItem = ({
         <Text style={styles.price}>{`${currency.code} ${price}`}</Text>
         <Text style={styles.quantity}>Quantity: {quantity}</Text>
         <View style={styles.actionContainer}>
-          <TouchableOpacity style={styles.increaseButton} onPress={() => {}}>
+          <TouchableOpacity style={styles.increaseButton} onPress={() => onIncreaseCartItem(id)}>
             <Text style={styles.increaseButtonText}>+</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.decreaseButton} onPress={() => {}}>
+          <TouchableOpacity style={styles.decreaseButton} onPress={() => onDecreaseCartItem(id)}>
             <Text style={styles.decreaseButtonText}>-</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => onRemoveCartItem(id)}>
           <Ionicons style={styles.removeButton} name='trash' size={20} color={COLORS.white} />
         </TouchableOpacity>
         </View>

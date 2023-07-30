@@ -1,4 +1,4 @@
-import { ActivityIndicator, SafeAreaView, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { COLORS, FONTS } from './themes';
 import { styles } from './styles.js';
@@ -25,9 +25,9 @@ export default function App() {
 
 	return (
 		<Provider store={store}>
-			<SafeAreaView style={styles.container}>
+			<View style={styles.container}>
 				<RootNavigator />
-			</SafeAreaView>
+			</View>
 		</Provider>
 	);
 }

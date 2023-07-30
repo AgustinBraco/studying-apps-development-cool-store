@@ -1,10 +1,10 @@
-import { View, FlatList, Text, Image, TouchableOpacity } from 'react-native';
+import { View, FlatList, Text, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useState } from 'react';
 import { Input } from '../../components';
 import { styles } from './styles.js';
 import { COLORS } from '../../themes/index.js';
 import { AntDesign } from '@expo/vector-icons';
-import { useSelector } from 'react-redux';
+import { useGetProductsByCategoryQuery } from '../../store/products/api';
 
 function Products({ navigation, route }) {
 	const { categoryId, color } = route.params;
@@ -12,7 +12,8 @@ function Products({ navigation, route }) {
 	const [backgroundColor, setBackgroundColor] = useState(COLORS.white);
 	const [filteredProducts, setFilteredProducts] = useState([]);
 
-	const products = useSelector((state) => state.products.data);
+	// const products = useSelector((state) => state.products.data);
+	const { data, error, isLoading } = useGetProductsByCategoryQuery(categoryId); 
 
 	const filterBySearch = (query) => {
 		let updatedProductList = [...filteredProductsByCategory];
@@ -39,9 +40,17 @@ function Products({ navigation, route }) {
 		navigation.navigate('ProductDetail', { productId, color, title });
 	};
 
-	const filteredProductsByCategory = products.filter(
+	const filteredProductsByCategory = data?.filter(
 		(product) => product.categoryId === categoryId
 	);
+
+	if (isLoading) {
+		return (
+			<View style={styles.loaderContainer}>
+				<ActivityIndicator size="large" color={COLORS.primary} />
+			</View>
+		);
+	}
 
 	return (
 		<View style={styles.container}>

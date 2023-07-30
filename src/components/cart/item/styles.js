@@ -5,8 +5,13 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'row',
+		justifyContent: 'space-around',
+		alignItems: 'center',
 		height: 145,
 		backgroundColor: COLORS.white,
+		padding: 10,
+		marginVertical: 5,
+		marginHorizontal: 10,
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
@@ -15,12 +20,6 @@ export const styles = StyleSheet.create({
 		shadowOpacity: 0.22,
 		shadowRadius: 2.22,
 		elevation: 3,
-		padding: 10,
-		marginHorizontal: 15,
-		marginTop: 15,
-		justifyContent: 'space-evenly',
-		alignItems: 'center',
-		borderRadius: 5,
 	},
 	imageContainer: {
 		maxWidth: 120,
