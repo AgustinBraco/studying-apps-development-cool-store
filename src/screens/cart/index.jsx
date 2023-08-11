@@ -67,7 +67,7 @@ function Cart({ navigation }) {
 			dispatch(clearCart());
 			navigation.navigate('OrdersTab');
 		} catch (err) {
-			console.warn('Catch error:', err);
+			console.error('Catch error:', err);
 		};
 	};
 

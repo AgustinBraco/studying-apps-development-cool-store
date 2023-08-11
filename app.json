@@ -23,6 +23,12 @@
         {
           "initialOrientation": "DEFAULT"
         }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photoPermission": "The app access to your galery"
+        }
       ]
     ],
     "android": {
