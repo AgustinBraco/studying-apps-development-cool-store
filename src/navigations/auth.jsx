@@ -6,12 +6,12 @@ const Stack = createNativeStackNavigator();
 const AuthNavigator = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName='Auth'
+			initialRouteName="Auth"
 			screenOptions={() => ({
 				headerShown: false,
 			})}
 		>
-			<Stack.Screen name='Auth' component={Auth} />
+			<Stack.Screen name="Auth" component={Auth} />
 		</Stack.Navigator>
 	);
 };

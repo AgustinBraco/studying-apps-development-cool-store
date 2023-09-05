@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
 	content: {
 		width: '80%',
 		maxWidth: 400,
+		minHeight: 335,
 		padding: 15,
 		margin: 15,
 		backgroundColor: COLORS.white,
@@ -64,6 +65,14 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		paddingVertical: 10,
+	},
+	buttonDissabled: {
+		backgroundColor: COLORS.grey,
+		width: 120,
+		height: 40,
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: 5,
 	},
 	button: {
 		backgroundColor: COLORS.secondary,

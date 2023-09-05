@@ -5,3 +5,6 @@ export { default as CartItem } from './cart/item/index.jsx';
 export { default as OrderItem } from './order/item/index.jsx';
 export { default as MenuItem } from './menu/item/index.jsx';
 export { default as ImageSelector } from './imageSelector/index.jsx';
+export { default as InputForm } from './input-form/index.jsx';
+export { default as Label } from './label/index.jsx';
+export { default as LocationSelector } from './location-selector/index.jsx';
