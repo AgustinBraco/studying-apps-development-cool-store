@@ -6,6 +6,7 @@ import {
 } from 'expo-location';
 import { useState } from 'react';
 import { COLORS } from '../../themes';
+import MapPreview from '../map-preview';
 
 const LocationSelector = ({ onLocation }) => {
 	const [pickedLocation, setPickedLocation] = useState(null);
@@ -36,19 +37,14 @@ const LocationSelector = ({ onLocation }) => {
 		const { latitude, longitude } = location.coords;
 
 		setPickedLocation({ lat: latitude, lng: longitude });
+		onLocation({ lat: latitude, lng: longitude });
 	};
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.preview}>
-				{!pickedLocation ? (
-					<Text style={styles.text}> No location chosen yet!</Text>
-				) : (
-					<Text
-						style={styles.location}
-					>{`latitude: ${pickedLocation.lat}, longitude: ${pickedLocation.lng}`}</Text>
-				)}
-			</View>
+			<MapPreview location={pickedLocation} style={styles.preview}>
+				<Text style={styles.text}> No location chosen yet!</Text>
+			</MapPreview>
 			<Button
 				title="Get user location"
 				onPress={onHandlerGetLocation}
